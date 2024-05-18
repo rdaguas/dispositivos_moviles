@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyNewApp</string>
+    <string name="btn_login">Ingresar</string>
+    <string name="btn_login_text">login</string>
+</resources>
