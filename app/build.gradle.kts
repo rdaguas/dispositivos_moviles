@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.ramos.myapplication"
+    namespace = "com.aguas.myapplication"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.ramos.myapplication"
+        applicationId = "com.aguas.myapplication"
         minSdk = 28
         targetSdk = 34
         versionCode = 1
