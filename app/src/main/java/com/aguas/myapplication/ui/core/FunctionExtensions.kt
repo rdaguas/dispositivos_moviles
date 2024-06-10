@@ -1,15 +1,13 @@
 package com.aguas.myapplication.ui.core
 
-import com.aguas.myapplication.data.network.entities.Photo
-import com.aguas.myapplication.ui.entities.NasaDataUI
+import com.aguas.myapplication.data.network.entities.NobelPrize
+import com.aguas.myapplication.ui.entities.PremiosNobelDataUI
 
 class FunctionExtensions
-fun Photo.toNasaDataUI(): NasaDataUI =
-    NasaDataUI(
-        this.img_src,
-        this.earth_date,
-        this.rover.name,
-        this.sol
+fun NobelPrize.toDataPremiosNobelUI(): PremiosNobelDataUI =
+    PremiosNobelDataUI(
+        this.awardYear,
+        this.prizeAmount
     )
 
 

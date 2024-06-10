@@ -9,9 +9,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.aguas.myapplication.databinding.ActivityConstrainBinding
-import com.aguas.myapplication.logic.userCases.GetNasaPhotosUserCase
-import com.aguas.myapplication.ui.adapters.NasaAdapter
-import com.aguas.myapplication.ui.entities.NasaDataUI
+import com.aguas.myapplication.logic.userCases.GetPremiosNobelUserCase
+import com.aguas.myapplication.ui.adapters.PremiosNobelAdapter
+import com.aguas.myapplication.ui.entities.PremiosNobelDataUI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -19,8 +19,8 @@ import kotlinx.coroutines.withContext
 class ConstrainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityConstrainBinding
-    private var items: MutableList<NasaDataUI> = mutableListOf()
-    private lateinit var nasaAdapter: NasaAdapter
+    private var items: MutableList<PremiosNobelDataUI> = mutableListOf()
+    private lateinit var nobelAdapter: PremiosNobelAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +33,9 @@ class ConstrainActivity : AppCompatActivity() {
     }
 
     private fun initVariables() {
-        nasaAdapter = NasaAdapter { descriptionItem(it) }
-        binding.rvNasaPhotos.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.rvNasaPhotos.adapter = nasaAdapter
+        nobelAdapter = PremiosNobelAdapter { descriptionItem(it) }
+        binding.rvNobel.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        binding.rvNobel.adapter = nobelAdapter
     }
 
     private fun initListeners() {
@@ -49,15 +49,15 @@ class ConstrainActivity : AppCompatActivity() {
         binding.pgbarLoadData.visibility = View.VISIBLE
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                val resultItems = GetNasaPhotosUserCase().invoke()
+                val resultItems = GetPremiosNobelUserCase().invoke()
                 Log.d("ConstrainActivity", "API Result: $resultItems")
                 withContext(Dispatchers.Main) {
                     binding.pgbarLoadData.visibility = View.INVISIBLE
                     resultItems.onSuccess {
                         Log.d("ConstrainActivity", "Success: $it")
                         items = it.toMutableList()
-                        nasaAdapter.itemList = items
-                        nasaAdapter.notifyDataSetChanged()
+                        nobelAdapter.itemList = items
+                        nobelAdapter.notifyDataSetChanged()
                     }
                     resultItems.onFailure {
                         showError(it.message.toString())
@@ -77,8 +77,8 @@ class ConstrainActivity : AppCompatActivity() {
         Snackbar.make(binding.refreshRV, message, Snackbar.LENGTH_SHORT).show()
     }
 
-    private fun descriptionItem(data: NasaDataUI) {
-        Snackbar.make(binding.rvNasaPhotos, "nasaaaaaaa", Snackbar.LENGTH_LONG).show()
+    private fun descriptionItem(data: PremiosNobelDataUI) {
+        Snackbar.make(binding.rvNobel, "Premios Noveel", Snackbar.LENGTH_LONG).show()
         val intent = Intent(this, DetailItemActivity::class.java)
         startActivity(intent)
     }

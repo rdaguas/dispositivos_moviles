@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bebop_bg"
+    android:background="@drawable/fondoluz"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".ui.activities.MainActivity">
@@ -21,8 +21,7 @@
         <ImageView
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:src="@drawable/ic_mars"
-        app:tint="@color/red"
+        android:src="@drawable/nobel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +32,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="30dp"
-            android:text="Mars Photos"
+            android:text="Premios novel"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="25sp"

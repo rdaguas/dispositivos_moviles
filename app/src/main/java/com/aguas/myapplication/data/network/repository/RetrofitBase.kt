@@ -3,21 +3,19 @@ package com.aguas.myapplication.data.network.repository
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-
 object RetrofitBase {
 
-    // https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos
-    fun returnBaseRetrofitNasa(): Retrofit {
+    //https://api.nobelprize.org/2.1/nobelPrizes
+        fun returnBaseRetrofitPremiosNobel(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/")
+            .baseUrl("https://api.nobelprize.org/2.1/")
             .addConverterFactory(GsonConverterFactory.create())
-            .client(apiClientNasa())
+            .client(apiClientPremiosNobel())
             .build()
     }
 
-    private fun apiClientNasa(): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(NasaInterceptor(1000, ApiKeys.API_NASA))
+    private fun apiClientPremiosNobel(): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(PremiosNobelInterceptor())
         .build()
 
 }

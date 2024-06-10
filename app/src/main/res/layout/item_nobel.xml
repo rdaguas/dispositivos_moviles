@@ -28,28 +28,21 @@
             tools:src="@drawable/degradado2" />
 
         <TextView
-            android:id="@+id/txtEarthDate"
+            android:id="@+id/txt_awaryear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="21sp"
-            tools:text="Fecha Tierra" />
+            tools:text="awarYear" />
 
         <TextView
-            android:id="@+id/txtRover"
+            android:id="@+id/txt_prizeAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textSize="12sp"
-            tools:text="Rover" />
+            tools:text="prizeAmount" />
 
-        <TextView
-            android:id="@+id/txtSol"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="12sp"
-            tools:text="Sol" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

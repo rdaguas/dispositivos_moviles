@@ -5,7 +5,6 @@ import com.aguas.myapplication.data.local.repository.ListUsers
 
 
 class LoginUserCase(private val listUser: ListUsers) {
-
     operator fun invoke(
         user: String,
         password: String
